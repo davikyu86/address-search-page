@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>주소 검색</title>
+    <script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
+</head>
+<body>
+    <h1>주소 검색</h1>
+    <button onclick="execDaumPostcode()">주소 검색</button>
+    <input type="text" id="address" placeholder="여기에 주소가 표시됩니다">
+    <script>
+        function execDaumPostcode() {
+            new daum.Postcode({
+                oncomplete: function(data) {
+                    // 검색된 주소를 해당 필드에 입력
+                    document.getElementById('address').value = data.address;
+                }
+            }).open();
+        }
+    </script>
+</body>
+</html>
